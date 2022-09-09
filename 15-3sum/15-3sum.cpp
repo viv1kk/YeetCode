@@ -30,11 +30,13 @@ public:
                 }
                 else if(n < 0)
                 {
-                    while(s < e && nums[s] ==x)++s;
+                    // while(s+ < e && nums[s] ==x)++s;
+                    ++s;
                 }
                 else
                 {
-                    while(s < e && nums[e] ==y)--e ;
+                    --e;
+                    // while(s < e && nums[e] ==y)--e ;
                 }
             }
               
