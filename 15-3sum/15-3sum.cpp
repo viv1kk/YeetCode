@@ -11,6 +11,9 @@ public:
             
             while(s < e)
             {  
+                int x = nums[s];
+                int y = nums[e];
+                
                 int n = nums[i]+nums[s]+nums[e];
                 
                 if(n == 0)
@@ -20,24 +23,21 @@ public:
                     temp.push_back(nums[s]);
                     temp.push_back(nums[e]);
                     ans.push_back(temp);
+                
+                    while(s < e && nums[s] ==x)++s;
+                    while(s < e && nums[e] ==y)--e ;
                     
-                    int x = nums[s];
-                    int y = nums[e];
-                    while(s < e && nums[s] ==x){
-                        s++ ;
-                    }
-                    while(s < e && nums[e] ==y){
-                        e-- ;
-                    }
                 }
                 else if(n < 0)
                 {
-                    s++;
+                    while(s < e && nums[s] ==x)++s;
                 }
                 else
                 {
-                    e--;
+                    while(s < e && nums[e] ==y)--e ;
                 }
+
+
             }
               
             while(i+1 < nums.size() && nums[i] == nums[i+1]){
