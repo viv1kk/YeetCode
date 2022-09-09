@@ -36,13 +36,9 @@ public:
                 {
                     while(s < e && nums[e] ==y)--e ;
                 }
-
-
             }
               
-            while(i+1 < nums.size() && nums[i] == nums[i+1]){
-                i++;
-            }
+            while(i+1 < nums.size() && nums[i] == nums[i+1])++i;
         }
         return ans; 
     }
