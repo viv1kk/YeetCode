@@ -25,13 +25,14 @@ public:
                 }
                 else if(val < 0)
                 {
-                    // while(j < k && nums[j] == nums[j+1])++j;
-                    ++j;
+                    // ++j;
+                    while(j < k && nums[j] == x)++j;
+                    
                 }
                 else
                 {
-                    --k;
-                    // while(j < k && nums[k] == nums[k-1])--k;
+                    // --k;
+                    while(j < k && nums[k] == y)--k;
                 }
             }
             
