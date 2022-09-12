@@ -1,47 +1,42 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        vector<vector<int>>ans;
-        
+        vector<vector<int>> ans;
         sort(nums.begin(), nums.end());
-        
         for(int i = 0; i < nums.size(); ++i)
         {
-            int s = i+1, e = nums.size()-1;
-            
-            while(s < e)
-            {  
-                int x = nums[s];
-                int y = nums[e];
+            for(int j = i+1, k = nums.size()-1; j < k; )
+            {
+                int x = nums[j];
+                int y = nums[k];
                 
-                int n = nums[i]+nums[s]+nums[e];
-                
-                if(n == 0)
-                {
+                int val = nums[i]+nums[j]+nums[k];
+                if(val == 0){
                     vector<int> temp;
                     temp.push_back(nums[i]);
-                    temp.push_back(nums[s]);
-                    temp.push_back(nums[e]);
+                    temp.push_back(nums[j]);
+                    temp.push_back(nums[k]);
                     ans.push_back(temp);
-                
-                    while(s < e && nums[s] ==x)++s;
-                    while(s < e && nums[e] ==y)--e ;
                     
+                    ++j;
+                    --k;
+                    while(j < k && nums[j] == x)++j;
+                    while(j < k && nums[k] == y)--k;
                 }
-                else if(n < 0)
+                else if(val < 0)
                 {
-                    // while(s+ < e && nums[s] ==x)++s;
-                    ++s;
+                    // while(j < k && nums[j] == nums[j+1])++j;
+                    ++j;
                 }
                 else
                 {
-                    --e;
-                    // while(s < e && nums[e] ==y)--e ;
+                    --k;
+                    // while(j < k && nums[k] == nums[k-1])--k;
                 }
             }
-              
-            while(i+1 < nums.size() && nums[i] == nums[i+1])++i;
+            
+            while(i + 1 != nums.size() && nums[i] == nums[i+1])++i;
         }
-        return ans; 
+        return ans;
     }
 };
