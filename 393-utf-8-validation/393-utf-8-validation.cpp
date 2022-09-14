@@ -10,42 +10,15 @@ public:
             
             if(count == 0)
             {
-                if((d>>(7-4)) == 30)
-                {
-                    count = 3;
-                    cout<<d<<" a, "<<count<<endl;
-                }
-                else if((d>>(7-3)) == 14)
-                {
-                    count = 2;
-                    cout<<d<<" b, "<<count<<endl;
-                }
-                else if((d>>(7-2)) == 6)
-                {
-                    count = 1;
-                    cout<<d<<" c, "<<count<<endl;
-                }
-                else if((d>>7) == 0)
-                {
-                    count = 0;
-                    cout<<d<<" d, "<<count<<endl;
-                }
-                else
-                {
-                    cout<<d<<", "<<count<<endl;
-                    return false;
-                }
-                    
+                if((d>>(7-4)) == 30)count = 3;
+                else if((d>>(7-3)) == 14)count = 2;
+                else if((d>>(7-2)) == 6)count = 1;
+                else if((d>>7) == 0)count = 0;
+                else return false;  
             }
             else
             {
-                cout<<count<<endl;
-                d = data[j];
-                if((d>>6) != 2)
-                {
-                    cout<<d<<" e, "<<count<<endl;
-                    return false;
-                }
+                if((d>>6) != 2)return false;
                 count--;
             }
             
