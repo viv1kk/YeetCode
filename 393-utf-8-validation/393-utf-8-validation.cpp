@@ -1,10 +1,10 @@
 class Solution {
 public:
     bool validUtf8(vector<int>& data) {
-        int i = data.size();
+        int sz = data.size();
         int j=0;
         int count = 0;
-        while(i)
+        while(j < sz)
         {
             int d = data[j];
             
@@ -21,12 +21,10 @@ public:
                 if((d>>6) != 2)return false;
                 --count;
             }
-            
-            if(j + count  >= data.size())
-                return false;
             ++j;
-            --i;
         }   
+        if(count)
+            return false;
         return true;
     }
 };
