@@ -18,7 +18,7 @@ public:
              
                 while(s < e)
                 {
-                    x = (long)target - ((long)nums[i]+(long)nums[j]+(long)nums[s]+(long)nums[e]);
+                    x = (long)target-((long)nums[i]+(long)nums[j]+(long)nums[s]+(long)nums[e]);
                 
                     if(x > 0)++s;
                     else if(x < 0)e--;
