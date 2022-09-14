@@ -4,7 +4,7 @@ public:
         int i = data.size();
         int j=0;
         int count = 0;
-        while(i--)
+        while(i)
         {
             int d = data[j];
             
@@ -19,12 +19,13 @@ public:
             else
             {
                 if((d>>6) != 2)return false;
-                count--;
+                --count;
             }
             
             if(j + count  >= data.size())
                 return false;
-            j++;
+            ++j;
+            --i;
         }   
         return true;
     }
