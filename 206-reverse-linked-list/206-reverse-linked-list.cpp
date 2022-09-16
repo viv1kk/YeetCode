@@ -13,10 +13,9 @@ public:
     
     ListNode* reverseList(ListNode* head) {
         if(head == NULL || head->next == NULL)return head;
-        
-        ListNode* h = reverseList(head->next);
+        ListNode* tail = reverseList(head->next);
         (head->next)->next = head;
         head->next = NULL;
-        return h;
+        return tail;
     }
 };
