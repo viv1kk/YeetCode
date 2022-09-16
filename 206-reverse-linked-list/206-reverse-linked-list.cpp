@@ -14,8 +14,12 @@ public:
     ListNode* reverseList(ListNode* head) {
         if(head == NULL || head->next == NULL)return head;
         ListNode* tail = reverseList(head->next);
+        
+        ListNode* j = (head->next)->next;
         (head->next)->next = head;
-        head->next = NULL;
+        head->next = j;
+        
+        
         return tail;
     }
 };
