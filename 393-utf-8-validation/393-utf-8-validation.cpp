@@ -1,28 +1,27 @@
 class Solution {
 public:
     bool validUtf8(vector<int>& data) {
-        int sz = data.size();
-        int j=0;
         int count = 0;
-        while(j < sz)
+        int i = 0;
+        while(i < data.size())
         {
-            int d = data[j];
+            int d = data[i];
             
-            if(count == 0)
+            if(!count)
             {
-                if((d>>(7-4)) == 30)count = 3;
-                else if((d>>(7-3)) == 14)count = 2;
-                else if((d>>(7-2)) == 6)count = 1;
+                if((d>>3) == 30)count = 3;
+                else if((d>>4) == 14)count = 2;
+                else if((d>>5) == 6)count = 1;
                 else if((d>>7) == 0)count = 0;
-                else return false;  
+                else return false;
             }
             else
             {
                 if((d>>6) != 2)return false;
-                --count;
+                else --count;
             }
-            ++j;
-        }   
+            ++i;
+        }
         if(count)
             return false;
         return true;
