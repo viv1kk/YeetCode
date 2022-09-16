@@ -28,6 +28,7 @@ public:
         if(left == right || head == NULL || head->next == NULL)
             return head;
         ListNode* h = head;
+        
         if(left == 1)
             return reverseLinkedList(head, right-left);
         
