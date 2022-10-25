@@ -1,8 +1,7 @@
 class Solution {
 public:
     bool validUtf8(vector<int>& data) {
-        int i = 0;
-        int count = 0;
+        int i = 0, count = 0;
         while(i < data.size())
         {
             int d = data[i];
