@@ -20,7 +20,7 @@ public:
                 i++;
             }
         }
-        if(count != 0) return false;
-        return true;
-    }
+        return !count;
+        
+        }
 };
