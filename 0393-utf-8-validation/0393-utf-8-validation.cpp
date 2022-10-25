@@ -12,15 +12,13 @@ public:
                 else if((d>>5) == 6) count  = 1;
                 else if((d>>7) == 0) count = 0;
                 else return false;
-                i++;
             }
             else{
                 if((d>>6) == 2) count--;
                 else return false;
-                i++;
             }
+            ++i;
         }
-        return !count;
-        
-        }
+        return !count;    
+    }
 };
