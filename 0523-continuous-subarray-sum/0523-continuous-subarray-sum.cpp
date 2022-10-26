@@ -2,7 +2,7 @@ class Solution {
 public:
     bool checkSubarraySum(vector<int>& nums, int k) {
         unordered_map<int, int> mp;
-        mp.insert({0, -1});
+        mp.insert({0, -1}); // is the first element is a multiple of k then to compare put a initial value
         
         int sum = 0;
         for(int i = 0; i < nums.size(); i++)
