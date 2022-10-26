@@ -5,8 +5,8 @@ public:
         
         while(i < s.size() && j < t.size())
         {
-            if(s[i] == t[j]) i++, j++;
-            else j++;
+            if(s[i] == t[j]) ++i, ++j;
+            else ++j;
         }
         return (i == s.size()); 
     }
