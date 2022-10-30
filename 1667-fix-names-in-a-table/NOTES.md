@@ -1,1 +1,1 @@
-Initcap
+Initcap will capitalize the first letter.
