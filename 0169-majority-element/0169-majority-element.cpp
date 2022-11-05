@@ -6,12 +6,12 @@ public:
         
         int maj;
         int count = 0;
-        
-        for(int i =0 ;i < nums.size(); i++)
+        int s = nums.size();
+        for(int i =0; i < s; ++i)
         {
             if(count == 0) maj = nums[i];
-            if(maj == nums[i]) count++;
-            else count--;
+            if(maj == nums[i]) ++count;
+            else --count;
         }
         return maj;
         
