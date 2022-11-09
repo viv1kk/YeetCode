@@ -7,10 +7,10 @@ public:
             if(abs(s[i]-s[i+1]) == 32)
             {
                 s.erase(s.begin()+i, s.begin()+i+2);
-                // s.erase(s.begin()+i);
                 i = 0;
-                continue;
+                continue;     
             }
+
             i++;
         }
         return s;
