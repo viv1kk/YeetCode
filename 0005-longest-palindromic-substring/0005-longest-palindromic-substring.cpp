@@ -20,7 +20,6 @@ public:
                     best_len = dist;
                     best_ind = i;
                 }
-                
             }
         }
         
