@@ -2,8 +2,8 @@ class Solution {
 public:
     bool isSubsequence(string s, string t) {
         
-        vector<vector<int>>dp(s.length()+1, vector<int>(t.length()+1, 0));
-        
+        // vector<vector<int>>dp(s.length()+1, vector<int>(t.length()+1, 0));
+        int dp[101][10001];
         for(int i = 1; i <= s.length(); i++)
         {
             for(int j = 1; j <= t.length(); j++)
