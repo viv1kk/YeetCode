@@ -1,65 +1,39 @@
-bool isPalindrome(string str)
-{
-    int s = str.length();
-    for(int i = 0, j = s-1; i < j; i++, j--)
-    {
-        if(str[i] != str[j])
-            return false;
-    }
-    return true;
-}
-
-int checkPalindromeOfSize(int s, string str)
-{
-    for(int i = 0; i+s <= str.length(); i++){
-        if(isPalindrome(str.substr(i, s)))
-            return i;
-    }
-    return -1;
-}
 class Solution {
 public:
-
-
-string longestPalindrome(string s) {
+    string longestPalindrome(string s) {
         int n = s.length();
-
         int best_len = 0;
         string best_str = "";
-
-
-        //if i == 0 find even length palindromic substring 
-        //if i == 1 find odd length plalindromic substring
-        for(int i = 0; i <= 1; i++)
+        
+        // ODD CASE
+        for(int mid = 0; mid < n; mid++)
         {
-            int S = 1, E = n;
-
-            if((S&1) != i)S++;
-            if((E&1) != i)E--;
-
-            while(S <= E)
+            for(int j = 0; mid-j >= 0 && mid+j < n; j++)
             {
-                int mid = S+((E-S)>>1);
-
-                if((mid&1) != i)mid++;
-                if(mid > E) break;
-
-                // check wheather there is a palindromic substring of length m 
-                int ind = checkPalindromeOfSize(mid, s);
-                if(ind != -1)
+                if(s[mid-j] != s[mid+j]) break;
+                int len = 2*j+1;
+                if(len > best_len)
                 {
-                    if(mid > best_len)
-                    {
-                        best_len = mid;
-                        best_str = s.substr(ind, mid);
-                    }
-                    S = mid + 2;
+                    best_len = len;
+                    best_str = s.substr(mid-j, len);
                 }
-                else
-                    E = mid - 2;
+            }
+        }
+        
+        // Even CASE
+        for(int mid = 0; mid < n; mid++)
+        {
+            for(int j = 0; mid-j+1 >= 0 && mid+j < n; j++)
+            {
+                if(s[mid-j+1] != s[mid+j]) break;
+                int len = 2*j;
+                if(len > best_len)
+                {
+                    best_len = len;
+                    best_str = s.substr(mid-j+1, len);
+                }
             }
         }
         return best_str;
     }
-
 };
