@@ -1,11 +1,10 @@
 class Solution {
 public:
-    
     int longestPalindromeSubseq(string s) {
+        int n = s.length();
         string r = s;
         reverse(r.begin(), r.end());
-        int n = s.length();
-        // vector<vector<int>>dp(n+1, vector<int>(n+1, 0));
+        
         int dp[1001][1001];
         for(int i = 1; i <= n; i++)
         {
