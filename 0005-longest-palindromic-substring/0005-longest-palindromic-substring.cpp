@@ -22,45 +22,44 @@ public:
 
 
 string longestPalindrome(string s) {
-    int n = s.length();
+        int n = s.length();
 
-    int best_len = 0;
-    string best_str = "";
+        int best_len = 0;
+        string best_str = "";
 
 
-    //if i == 0 find even length palindromic substring 
-    //if i == 1 find odd length plalindromic substring
-    for(int i = 0; i <= 1; i++)
-    {
-        int S = 1, E = n;
-
-        if((S&1) != i)S++;
-        if((E&1) != i)E--;
-
-        while(S <= E)
+        //if i == 0 find even length palindromic substring 
+        //if i == 1 find odd length plalindromic substring
+        for(int i = 0; i <= 1; i++)
         {
-            int mid = S+(E-S)/2;
+            int S = 1, E = n;
 
-            if((mid&1) != i)mid++;
-            if(mid > E) break;
+            if((S&1) != i)S++;
+            if((E&1) != i)E--;
 
-            // check wheather there is a palindromic substring of length m 
-            int ind = checkPalindromeOfSize(mid, s);
-            
-            if(ind != -1)
+            while(S <= E)
             {
-                if(mid > best_len)
+                int mid = S+((E-S)>>1);
+
+                if((mid&1) != i)mid++;
+                if(mid > E) break;
+
+                // check wheather there is a palindromic substring of length m 
+                int ind = checkPalindromeOfSize(mid, s);
+                if(ind != -1)
                 {
-                    best_len = mid;
-                    best_str = s.substr(ind, mid);
+                    if(mid > best_len)
+                    {
+                        best_len = mid;
+                        best_str = s.substr(ind, mid);
+                    }
+                    S = mid + 2;
                 }
-                S = mid + 2;
+                else
+                    E = mid - 2;
             }
-            else
-            E = mid - 2;
-        }   
+        }
+        return best_str;
     }
-    return best_str;
-}
 
 };
