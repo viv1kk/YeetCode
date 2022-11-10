@@ -2,38 +2,25 @@ class Solution {
 public:
     string longestPalindrome(string s) {
         int n = s.length();
-        int best_len = 0;
-        string best_str = "";
+        vector<vector<bool>>dp(n, vector<bool>(n, false));
         
-        // ODD CASE
-        for(int mid = 0; mid < n; mid++)
+        int ind = 0, max = 0;
+        for(int dist = 0; dist < n; dist++)
         {
-            for(int j = 0; mid-j >= 0 && mid+j < n; j++)
+            for(int i = 0, j = i+dist; i+dist < n; i++, j++)
             {
-                if(s[mid-j] != s[mid+j]) break;
-                int len = 2*j+1;
-                if(len > best_len)
+                if(i==j) dp[i][j] = true;
+                if(dist == 1 && s[i] == s[j]) dp[i][j] = true;
+                if(dist > 1 && s[i] == s[j] && dp[i+1][j-1] == true) dp[i][j] = true;
+                
+                if(dp[i][j] && max < dist)
                 {
-                    best_len = len;
-                    best_str = s.substr(mid-j, len);
+                    max = dist;
+                    ind = i;
                 }
             }
         }
-        
-        // Even CASE
-        for(int mid = 0; mid < n; mid++)
-        {
-            for(int j = 0; mid-j+1 >= 0 && mid+j < n; j++)
-            {
-                if(s[mid-j+1] != s[mid+j]) break;
-                int len = 2*j;
-                if(len > best_len)
-                {
-                    best_len = len;
-                    best_str = s.substr(mid-j+1, len);
-                }
-            }
-        }
-        return best_str;
+        string ans = s.substr(ind, max+1);
+        return ans;
     }
 };
