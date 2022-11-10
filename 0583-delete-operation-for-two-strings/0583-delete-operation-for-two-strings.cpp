@@ -4,7 +4,8 @@ public:
         int s1 = word1.length();
         int s2 = word2.length();
         
-        vector<vector<int>>dp(s1+1, vector<int> (s2+1, 0));
+        // vector<vector<int>>dp(s1+1, vector<int> (s2+1, 0));
+        int dp[501][501];
         
         for(int i = 1; i <= s1; i++)
         {
@@ -17,6 +18,6 @@ public:
             }
         }
         
-        return (s1-dp[s1][s2])+(s2-dp[s1][s2]);
+        return (s1+s2)-2*dp[s1][s2];
     }
 };
