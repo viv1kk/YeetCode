@@ -5,31 +5,26 @@ public:
         int best_len = 0;
         int best_ind = 0;
         
-        for(int mid = 0; mid < n; mid++)
+        vector<vector<bool>>dp(n, vector<bool>(n, 0));
+        
+        for(int dist = 0; dist < n; dist++)
         {
-            for(int j = 0; mid-j+1 >= 0 && mid+j < n; j++)
+            for(int i = 0, j = dist+i; i+dist < n; i++, j++)
             {
-                if(s[mid-j+1] != s[mid+j]) break;
-                int len = 2*j;
-                if(len > best_len)
+                if(i==j) dp[i][j] = true;
+                if(dist == 1) dp[i][j] = (s[i]==s[j]);
+                if(dist > 1) dp[i][j] = (s[i]==s[j] && dp[i+1][j-1]);
+                
+                if(dp[i][j] && best_len < dist)
                 {
-                    best_len = len;
-                    best_ind = mid-j+1;
+                    best_len = dist;
+                    best_ind = i;
                 }
-            }
-            for(int j = 0; mid-j >= 0 && mid+j < n; j++)
-            {
-                if(s[mid-j] != s[mid+j]) break;
-                int len = 2*j+1;
-                if(len > best_len)
-                {
-                    best_len = len;
-                    best_ind = mid-j;
-                }
+                
             }
         }
         
-        string ans = s.substr(best_ind, best_len);
+        string ans = s.substr(best_ind, best_len+1);
         return ans;
     }    
 };
