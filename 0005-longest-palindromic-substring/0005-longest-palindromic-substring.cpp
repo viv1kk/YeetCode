@@ -1,29 +1,30 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-        int n = s.length();
-        int best_len = 0;
-        int best_ind = 0;
+                int n = s.length();
+
+        // bool dp[1001][1001];
+        int mx = 0;
+        int id = 0;
+                vector<vector<bool>>dp(n, vector<bool>(n, false));
+
         
-        vector<vector<bool>>dp(n, vector<bool>(n, 0));
-        
-        for(int dist = 0; dist < n; dist++)
+        for(int dist = 0; dist < s.length(); dist++)
         {
-            for(int i = 0, j = dist+i; i+dist < n; i++, j++)
+            for(int i = 0, j = i+dist; i+dist < s.length(); i++, j++)
             {
-                if(i==j) dp[i][j] = true;
-                if(dist == 1) dp[i][j] = (s[i]==s[j]);
-                if(dist > 1) dp[i][j] = (s[i]==s[j] && dp[i+1][j-1]);
+                if(i==j) dp[i][j] = 1;
+                if(dist == 1 && s[i]==s[j]) dp[i][j] = true;
+                if(dist > 1 && s[i] == s[j] && dp[i+1][j-1] == true) dp[i][j] = true;
                 
-                if(dp[i][j] && best_len < dist)
+                if(dp[i][j] && mx< dist)
                 {
-                    best_len = dist;
-                    best_ind = i;
+                    mx = dist;
+                    id = i;
                 }
             }
         }
-        
-        string ans = s.substr(best_ind, best_len+1);
+        string ans = s.substr(id, mx+1);
         return ans;
-    }    
+    }
 };
