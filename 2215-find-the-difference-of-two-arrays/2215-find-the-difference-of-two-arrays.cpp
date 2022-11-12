@@ -1,45 +1,17 @@
 class Solution {
 public:
     vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
-        vector<vector<int>>ans;
-        unordered_map<int, int>mp;
-        unordered_map<int, int>mp2;
-
-        for(int i = 0; i < nums1.size(); i++)
+        set<int> s1(begin(nums1), end(nums1)), s2(begin(nums2), end(nums2));
+        vector<vector<int>>ans(2);
+        
+        for(auto i : s1)
         {
-            auto it = mp.find(nums1[i]);
-            if(it == mp.end())
-                mp[nums1[i]]++;
-            else
-            {
-                nums1.erase(nums1.begin()+i, nums1.begin()+1+i);
-                --i;
-            }
+            if(s2.find(i) == s2.end()) ans[0].push_back(i);
         }
-        for(int i = 0; i < nums2.size(); i++)
+        for(auto i : s2)
         {
-            mp2[nums2[i]]++;
-            auto it = mp.find(nums2[i]);
-            if(it == mp.end())
-                mp[nums2[i]]++;
-            else
-            {
-                nums2.erase(nums2.begin()+i, nums2.begin()+i+1);
-                --i;
-            }
-        }
-    
-        for(int i = 0; i < nums1.size(); i++)
-        {
-            auto it = mp2.find(nums1[i]);
-            if(it != mp.end())
-            {
-                nums1.erase(nums1.begin()+i, nums1.begin()+1+i);
-                --i;
-            }
-        }
-        ans.push_back(nums1);
-        ans.push_back(nums2);
+            if(s1.find(i) == s1.end()) ans[1].push_back(i);
+        }        
         return ans;
     }
 };
