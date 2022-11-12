@@ -10,7 +10,7 @@ public:
         s.push_back('@');
 
         int d = s.length();
-        vector<int>p(d,0);
+        int p[2004]={0};
 
         int l = 0, c = 0, r = 0, mx = 0;
         for(int i = 1; i < d-2; i++)
