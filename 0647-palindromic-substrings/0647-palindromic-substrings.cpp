@@ -22,7 +22,7 @@ public:
         int count = 0;
         for(int i = 0; i < d; i++)
         {
-            if(i%2) count=count+(p[i]/2);
+            if(i&1) count=count+(p[i]/2);
             else count=count+(p[i]+1)/2;;
         }
         return count;
