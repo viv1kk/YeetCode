@@ -26,8 +26,8 @@ string longestPalindrome(string str) {
     vector<int>p(strLen, 0);
     for(int i = 1;i < strLen-1; i++)
     {
-        if(i < maxRight)
-            p[i] = min(maxRight-i, p[((2*center) -i)]);
+        // if(i < maxRight)
+        //     p[i] = min(maxRight-i, p[((2*center) -i)]);
         while(s[(i+p[i]+1)] == s[(i-p[i]-1)])
             p[i]++;
         if(i+p[i] > maxRight){
