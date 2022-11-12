@@ -29,10 +29,6 @@ public:
             }
         }
     
-        for(auto i : nums1)
-        {
-            cout<<i<<", ";
-        }
         for(int i = 0; i < nums1.size(); i++)
         {
             auto it = mp2.find(nums1[i]);
