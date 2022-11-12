@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
-        set<int> s1(begin(nums1), end(nums1)), s2(begin(nums2), end(nums2));
+        set<int> s1(nums1.begin(), nums1.end()), s2(nums2.begin(), nums2.end());
         vector<vector<int>>ans(2);
         
         for(auto i : s1)
