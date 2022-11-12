@@ -16,20 +16,11 @@ string longestPalindrome(string str) {
     int mx = 0;
     for(int i = 1; i < s.length()-2; ++i)
     {
-        if(i < r)
-            p[i] = min(r-i, p[((2*c)-i)]);
-        while(s[(i-p[i]-1)] == s[(i+p[i]+1)])
-            p[i]++;
-
+        if(i < r)p[i] = min(r-i, p[((2*c)-i)]);
+        while(s[(i-p[i]-1)] == s[(i+p[i]+1)])p[i]++;
         if(p[i]+i > r) c = i, r= i+p[i] ; 
-        if(p[i] >= mx)
-        {
-            l = (i-p[i]-1)/2;
-            mx = p[i];
-        }
-
+        if(p[i] >= mx)l = (i-p[i]-1)/2, mx = p[i];
     }
-    // int dist = r-l;
     string ans = str.substr(l, mx);
     return ans;
     }
