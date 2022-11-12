@@ -10,11 +10,13 @@ string longestPalindrome(string str) {
     }
     s.push_back('@');
     
-    vector<int> p(s.length(), 0);
+    // vector<int> p(s.length(), 0);
+    int d = s.length();
+    int p[2004]={0};
     
     int l = 0, c = 0, r = 0;
     int mx = 0;
-    for(int i = 1; i < s.length()-2; ++i)
+    for(int i = 1; i < d-2; ++i)
     {
         if(i < r)p[i] = min(r-i, p[((2*c)-i)]);
         while(s[(i-p[i]-1)] == s[(i+p[i]+1)])p[i]++;
