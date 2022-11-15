@@ -4,19 +4,36 @@ public:
         int n1 = nums1.size();
         int n2 = nums2.size();
         
-        vector<int>ans;
-        for(int i = 0; i < n1; i++)
+        unordered_map<int, int>mp1;
+        unordered_map<int, int>mp2;
+        
+        for(auto i:nums1)
         {
-            for(int j = 0; j < nums2.size(); j++)
+            mp1[i]++;
+        }
+        for(auto i:nums2)
+        {
+            mp2[i]++;
+        }
+        
+        vector<int>ans;        
+        for(auto i : mp1)
+        {
+            auto it = mp2.find(i.first);
+            if(it != mp2.end())
             {
-                if(nums1[i] == nums2[j])
+                int x = (i.second <= it->second)?i.second:it->second;
+                while(x--)
                 {
-                    ans.push_back(nums1[i]);
-                    nums2.erase(nums2.begin()+j);
-                    break;
+                    ans.push_back(i.first);
                 }
             }
+            else
+            {
+                continue;
+            }
         }
+        
         return ans;
     }
 };
