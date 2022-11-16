@@ -11,11 +11,10 @@ public:
             bs(a, b, t, s, mid-1);
         else
         {
-            
             bs(a, b, t, s, mid-1);
             b[0]= min(b[0],mid);
             bs(a, b, t, mid+1, e);
-            b[1] = max(b[1], mid);   
+            b[1] = max(b[1],mid);   
         }
     }
     
