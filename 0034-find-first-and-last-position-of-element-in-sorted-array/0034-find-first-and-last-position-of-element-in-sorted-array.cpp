@@ -4,7 +4,7 @@ public:
     {
         if(s > e)
             return; 
-        int mid = s+(e-s)/2;
+        int mid = s+((e-s)>>1);
         if(a[mid] < t)
             bs(a, b, t, mid+1, e);
         else if(a[mid] > t)
