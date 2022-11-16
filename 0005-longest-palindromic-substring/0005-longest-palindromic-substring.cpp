@@ -1,41 +1,28 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-        string a = "@#";
+        bool dp[1001][1001] = {false};
+        // string r = s;
+        // reverse(r.begin(), r.end());
         
-        for(auto i : s)
+        int n = s.length();
+        int mx = 0;
+        int ind = 0;
+        for(int dist = 0; dist < n; dist++)
         {
-            a+=i;
-            a+='#';
-        }
-        a+='$';
-        // cout<<a;
-        int n = a.length();
-        int p[2004] = {0};
-        
-        int l = 0, r = 0, c = 0, mx = 0;
-        
-        for(int i = 1; i < n-2; i++)
-        {
-            if(i < r)
+            for(int i = 0, j = dist+i; j < n; j++, i++)
             {
-                p[i] = min(r-i, p[(2*c)-i]);
-            }
-            while(a[i+p[i]+1] == a[i-p[i]-1])
-                p[i]++;
-            if(i+p[i] > r)
-            {
-                r = i+p[i];
-                c = i;
-            }
-            if(p[i] >= mx)
-            {
-                l = (i-p[i]-1)/2;
-                mx = p[i];
+                if(i == j)dp[i][j] = true;
+                if(dist == 1 && s[i] == s[j]) dp[i][j] = true;
+                if(dist > 1 && s[i] == s[j] && dp[i+1][j-1]) dp[i][j] = true;
+                if(dp[i][j] &&  mx <dist)
+                {
+                    ind = i;
+                    mx = dist;
+                }
             }
         }
-        cout<<l<<' '<<mx;
-        string ans = s.substr(l , mx);
+        string ans = s.substr(ind, mx+1);
         return ans;
     }
 };
