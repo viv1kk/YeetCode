@@ -1,41 +1,26 @@
 class Solution {
 public:
-    string longestPalindrome(string y) {
-       string s = "@#";
-        for(char i : y)
-        {
-            s += i;
-            s += '#';
-        }
-        s+='$';
-        
+    string longestPalindrome(string s) {
+    
+        int dp[1001][1001] = {0};
         int n = s.length();
-        int l = 0, c = 0, r = 0, m = 0;
-        
-        vector<int>p(n, 0);
-        for(int i = 1; i < n-2; i++)
+        int m = 0;
+        int ind = 0;
+        for(int d = 0; d < n; d++)
         {
-            if(i < r)
+            for(int i = 0, j = i+d;  j < n; i++, j++)
             {
-                p[i] = min(r-i, p[2*c-i]);
+                if(i == j) dp[i][j] = 1;
+                if(d == 1 && s[i] == s[j]) dp[i][j] = 1;
+                if(d > 1 && s[i] == s[j] && dp[i+1][j-1] == 1)dp[i][j] = 1;
+                if(m < d && dp[i][j] == 1)
+                {
+                    m = d;
+                    ind = i;
+                }
             }
-            
-            while(s[i-p[i]-1] == s[i+p[i]+1])p[i]++;
-            
-            if(i+p[i] > r){
-                r = i+p[i];
-                c = i;
-            }
-            if(p[i] > m)
-            {
-                l = (i-p[i]-1)/2;
-                m = p[i];
-            }
-            
         }
-        string ans = y.substr(l, m);
-        
-        // cout<<r;
+        string ans = s.substr(ind, m+1);
         return ans;
     }
 };
