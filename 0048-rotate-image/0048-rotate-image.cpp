@@ -17,13 +17,13 @@ public:
                 swap(matrix[i][j], matrix[i][n-1-j]);
             }
         }
-        for(int i = 0; i < n; i++)
-        {
-            for(int j = 0; j < n; j++)
-            {
-                cout<<matrix[i][j]<<" ";
-            }
-            cout<<endl;
-        }
+        // for(int i = 0; i < n; i++)
+        // {
+        //     for(int j = 0; j < n; j++)
+        //     {
+        //         cout<<matrix[i][j]<<" ";
+        //     }
+        //     cout<<endl;
+        // }
     }
 };
