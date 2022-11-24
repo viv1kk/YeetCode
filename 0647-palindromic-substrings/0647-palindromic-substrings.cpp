@@ -1,30 +1,25 @@
 class Solution {
 public:
-    int countSubstrings(string str) {
-        string s = "$#";
-        for(int i = 0; i < str.length(); i++)
+    int countSubstrings(string st) {
+        string r = "$#";
+        for(char i : st)
         {
-            s.push_back(str[i]);
-            s.push_back('#');
+            r += i;
+            r +='#';
         }
-        s.push_back('@');
-
-        int d = s.length();
-        int p[2004]={0};
-
-        int l = 0, c = 0, r = 0, mx = 0;
-        for(int i = 1; i < d-2; i++)
+        r += '@';
+        int p[2005] = {0};
+        int n = r.length();
+        int s = 0, e = 0, c = 0, mx = 0;
+        for(int i = 1; i < n-2; i++)
         {
-            if(i<r) p[i] = min(r-i, p[(2*c-i)]);
-            while(s[(i-p[i]-1)]==s[(i+p[i]+1)])p[i]++;
-            if(i+p[i]>r)c=i,r=i+p[i];
+            if(i < e) p[i] = min(e-i, p[((2*c)-i)]);
+            while(r[i+p[i]+1] == r[i-p[i]-1]) p[i]++;
+            if(i+p[i] > e){ c = i; e = i+p[i]; }
         }
         int count = 0;
-        for(int i = 0; i < d; i++)
-        {
-            if(i&1) count=count+(p[i]/2);
-            else count=count+(p[i]+1)/2;;
-        }
+        for(int i = 0; i < n; i++)
+            count += ((p[i]+1)/2);
         return count;
     }
 };
