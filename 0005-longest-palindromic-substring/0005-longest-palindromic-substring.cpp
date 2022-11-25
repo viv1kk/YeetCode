@@ -3,7 +3,7 @@ public:
     string longestPalindrome(string s) {
         int dp[1001][1001] = {0};
         string r = s;
-        reverse(r.begin(), r.end());
+        // reverse(r.begin(), r.end());
         
         int n = s.length();
         int mx = 0;
