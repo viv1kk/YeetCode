@@ -8,7 +8,7 @@ public:
         {
             if(nums[i-1] < nums[i])
             {
-                count++;
+                ++count;
                 mx = (count > mx)?count:mx;
             }                
             else
