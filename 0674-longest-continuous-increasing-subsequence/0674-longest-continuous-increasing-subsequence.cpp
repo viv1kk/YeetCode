@@ -9,7 +9,7 @@ public:
             if(nums[i-1] < nums[i])
             {
                 count++;
-                mx = max(count, mx);
+                mx = (count > mx)?count:mx;
             }                
             else
                 count = 1;
