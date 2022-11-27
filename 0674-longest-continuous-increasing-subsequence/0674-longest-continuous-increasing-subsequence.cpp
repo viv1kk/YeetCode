@@ -3,8 +3,8 @@ public:
     int findLengthOfLCIS(vector<int>& nums) {
         int count = 1;
         int mx = 1;
-        
-        for(int i = 1; i < nums.size(); i++)
+        int n = nums.size();
+        for(int i = 1; i < n; i++)
         {
             if(nums[i-1] < nums[i])
             {
