@@ -13,14 +13,11 @@ public:
         {
             if(prices[i] > mx) mx = prices[i];
             lr[i] = mx;
-            // cout<<lr[i]<<", ";
         }
-        // cout<<endl;
         for(int i = 0; i < n; i++)
         {
             if(prices[i] < mn) mn = prices[i];
             rr[i] = mn;
-            // cout<<rr[i]<<", ";
         }
         
         int m = 0;
