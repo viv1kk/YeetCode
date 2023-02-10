@@ -42,13 +42,11 @@ public:
     void f(vector<vector<int>>& grid, vector<vector<int>>&dp, int i, int j, int x, int n)
     {
         if(x >= dp[i][j]) return;
-        
         dp[i][j] = x;
-        
-        if(i+1 < n && grid[i+1][j] == 0 && dp[i+1][j] > x+1) f(grid, dp, i+1, j, x+1,n);
-        if(i > 0 && grid[i-1][j] == 0 && dp[i-1][j] > x+1) f(grid, dp, i-1, j, x+1,n);
-        if(j+1 < n && grid[i][j+1] == 0 && dp[i][j+1] > x+1) f(grid, dp, i, j+1, x+1,n);
-        if(j > 0 && grid[i][j-1] == 0 && dp[i][j-1] > x+1) f(grid, dp, i, j-1, x+1,n);
+        if(i+1 < n && grid[i+1][j] == 0) f(grid, dp, i+1, j, x+1,n);
+        if(i > 0 && grid[i-1][j] == 0) f(grid, dp, i-1, j, x+1,n);
+        if(j+1 < n && grid[i][j+1] == 0) f(grid, dp, i, j+1, x+1,n);
+        if(j > 0 && grid[i][j-1] == 0) f(grid, dp, i, j-1, x+1,n);
     }
     int maxDistance(vector<vector<int>>& grid)
     {
