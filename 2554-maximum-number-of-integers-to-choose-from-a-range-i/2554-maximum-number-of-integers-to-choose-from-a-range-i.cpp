@@ -12,13 +12,15 @@ public:
             if(st.find(i) == st.end())
              {
                 sum += i;
-                count++;
-             }
-             if(sum >= maxSum)
+                ++count;
+             if(sum < maxSum)
+                 continue;
+            else
              {
                 if(sum > maxSum)
                     count--;
                 break;
+             }
              }
         }
         return count;
