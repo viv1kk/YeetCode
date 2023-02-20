@@ -25,7 +25,7 @@ public:
             {
                 if(word[0] == board[i][j])
                     ans = f(board, vis, word, i, j, m, n, 0);
-                if(ans) return true;
+                if(ans) break;
             }
             if(ans) break;
         }
