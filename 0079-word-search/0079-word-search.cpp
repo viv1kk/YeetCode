@@ -3,11 +3,11 @@ public:
     bool f(vector<vector<char>>& board, vector<vector<bool>>&vis, string word, int x, int y, int m, int n, int ind)
     {
         if(x < 0 || y < 0 || x >= m || y >= n || vis[x][y] == true || board[x][y] != word[ind]) return false;
-        if(board[x][y] == word[ind] && ind == word.length()-1) return true;
+        if(ind == word.length()-1) return true;
         vis[x][y] = true;
         bool ans = false;
-        ans = ans | f(board, vis, word, x+1, y, m, n, ind+1);
         ans = ans | f(board, vis, word, x-1, y, m, n, ind+1);
+        ans = ans | f(board, vis, word, x+1, y, m, n, ind+1);
         ans = ans | f(board, vis, word, x, y-1, m, n, ind+1);
         ans = ans | f(board, vis, word, x, y+1, m, n, ind+1);
         vis[x][y] = false;
