@@ -26,10 +26,9 @@ public:
             {
                 if(word[0] == board[i][j])
                     ans = f(board, vis, word, i, j, m, n, 0);
-                if(ans) break;
+                if(ans) return true;
             }
-            if(ans) break;
         }
-        return ans;
+        return false;
     }
 };
