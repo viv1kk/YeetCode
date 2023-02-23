@@ -1,14 +1,5 @@
 class Solution {
 public:
-    struct comp {
-    constexpr bool operator()(
-        pair<int, int> const& a,
-        pair<int, int> const& b)
-        const noexcept
-    {
-        return a.second < b.second;
-    }
-};
     
     int findMaximizedCapital(int k, int w, vector<int>& profits, vector<int>& capital) {
         priority_queue<pair<int, int>, vector<pair<int,int>>, greater<pair<int,int>>> cpq;
