@@ -12,7 +12,6 @@ public:
     
     int findMaximizedCapital(int k, int w, vector<int>& profits, vector<int>& capital) {
         priority_queue<pair<int, int>, vector<pair<int,int>>, greater<pair<int,int>>> cpq;
-        // priority_queue<pair<int, int>,vector<pair<int,int>>, comp>ppq;
         priority_queue<pair<int, int>>ppq;
         
         for(int i = 0; i < profits.size(); i++)
