@@ -1,8 +1,8 @@
 class Solution {
 public:
     vector<string> cellsInRange(string s) {
-        int a = s[1]-'0';
-        int b = s[4]-'0';
+        int a = s[1];
+        int b = s[4];
         
         int x = s[0], y = s[3];
         
@@ -13,7 +13,7 @@ public:
             {
                 string t = "";
                 t += (char)i;
-                t += (char)j+'0';
+                t += (char)j;
                 ans.push_back(t);
             }
         }
