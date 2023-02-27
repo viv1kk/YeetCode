@@ -8,8 +8,8 @@ public:
         int n = intervals.size();
         for(int i = 1; i < n; i++)
         {
-            if((ans.back()).back() >= intervals[i][0])
-               (ans.back()).back() = max(intervals[i][1], (ans.back()).back());
+            if(ans.back()[1] >= intervals[i][0])
+               (ans.back())[1] = max(intervals[i][1], (ans.back())[1]);
             else
                 ans.push_back(intervals[i]);
         }
