@@ -1,10 +1,10 @@
-class comp{
-  public:
-    bool operator()(pair<int, string> a, pair<int, string> b)const{
-            if(a.first < b.first || (a.first == b.first && a.second>b.second) ) return true;
-            return false;
-        }
-};
+// class comp{
+//   public:
+//     bool operator()(pair<int, string> a, pair<int, string> b)const{
+//             if(a.first < b.first || (a.first == b.first && a.second>b.second) ) return true;
+//             return false;
+//         }
+// };
 
 class Solution {
 public:
@@ -13,11 +13,11 @@ public:
         for(auto i : words)
             mp[i]++;
         
-        // auto comp = [](pair<int, string> &a, pair<int, string> &b){
-        //     if(a.first < b.first || (a.first == b.first && a.second>b.second) ) return true;
-        //     return false;
-        // };
-        priority_queue<pair<int, string>,vector<pair<int, string>>, comp>pq;
+        auto comp = [](pair<int, string> &a, pair<int, string> &b){
+            if(a.first < b.first || (a.first == b.first && a.second>b.second) ) return true;
+            return false;
+        };
+        priority_queue<pair<int, string>,vector<pair<int, string>>,decltype(comp)>pq(comp);
         for(auto[a, b] : mp)
             pq.push({b, a});
 
