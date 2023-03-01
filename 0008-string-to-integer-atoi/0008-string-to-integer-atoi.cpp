@@ -44,9 +44,6 @@ public:
         //if only '-' in str return  0;
         if(num == "") return 0;
 //***************************************************************************************
-        
-        cout<<num<<endl;
-        // reverse(num.begin(), num.end());
         long ans = 0;
         i = 0;
         
