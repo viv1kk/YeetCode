@@ -5,8 +5,8 @@ public:
         int s1 = mid-l+1;
         int s2 = u-mid;
         
-        vector<int>LR(s1+1);
-        vector<int>RR(s2+1);
+        int LR[s1+1];
+        int RR[s2+1];
         
         for(int i = 0; i < s1; i++)
         {
