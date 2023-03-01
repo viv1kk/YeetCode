@@ -6,7 +6,7 @@ public:
         int ind = 0;
         while(ind < n)
         {
-            vector<int>f(26, 0);
+            int f[26] ={0};
             for(int j = 0; j < n; j++)
             {
                 if(j == ind) continue;
