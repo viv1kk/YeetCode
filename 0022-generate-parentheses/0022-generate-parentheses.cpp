@@ -8,9 +8,10 @@ public:
         stack<char>stk;
         for(int i = 0; i < a.length(); i++)
         {
-            if(stk.empty() && a[i] == ')') return;
+            bool em = stk.empty();
+            if(em && a[i] == ')') return;
             if(a[i] == '(') stk.push('(');
-            else if(!stk.empty()&& stk.top() == '(' && a[i] == ')')stk.pop(); 
+            else if(!em && stk.top() == '(' && a[i] == ')')stk.pop(); 
         }
         if(n == 0)
         {
