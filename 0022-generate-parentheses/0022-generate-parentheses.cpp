@@ -5,18 +5,6 @@ public:
     
     void f(int n,  string a)
     {
-        if(n == 0)
-        {
-            stack<char>stk;
-            for(int i = 0; i < a.length(); i++)
-            {
-                if(stk.empty() && a[i] == ')') return;
-                if(a[i] == '(') stk.push('(');
-                else if(!stk.empty()&& stk.top() == '(' && a[i] == ')')stk.pop(); 
-            }
-            if(stk.empty()) ans.push_back(a);
-            return;
-        }
         stack<char>stk;
         for(int i = 0; i < a.length(); i++)
         {
@@ -24,6 +12,12 @@ public:
             if(a[i] == '(') stk.push('(');
             else if(!stk.empty()&& stk.top() == '(' && a[i] == ')')stk.pop(); 
         }
+        if(n == 0)
+        {
+            if(stk.empty()) ans.push_back(a);
+            return;
+        }
+
         f(n-1,a+'(');        
         f(n-1, a+')');
     }
