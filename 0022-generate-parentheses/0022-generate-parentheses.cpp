@@ -3,10 +3,10 @@ public:
 
     vector<string>ans;
     
-    void f(int n,  string a)
+    void f(int n,  string a, int l)
     {
         stack<char>stk;
-        for(int i = 0; i < a.length(); i++)
+        for(int i = 0; i < l; i++)
         {
             bool em = stk.empty();
             if(em && a[i] == ')') return;
@@ -19,12 +19,12 @@ public:
             return;
         }
 
-        f(n-1,a+'(');        
-        f(n-1, a+')');
+        f(n-1,a+'(', l+1);        
+        f(n-1, a+')',l+1);
     }
     
     vector<string> generateParenthesis(int n) {
-        f((2*n), "");
+        f((2*n), "", 0);
         return ans;
     }
 };
