@@ -10,12 +10,8 @@ public:
             if(haystack[i-m+1] == needle[0] && haystack[i] == needle[m-1])
             {
                 int k = i-m+1, flag = 0;
-                for(int j = 1; j < m-1; j++)
-                {
-                    if(haystack[++k] != needle[j]){ flag = 1; break;}
-                }
-                if(flag == 0)
-                    return i-m+1;
+                for(int j = 1; j < m-1; j++){ if(haystack[++k] != needle[j]){ flag = 1; break;} }
+                if(flag == 0) return i-m+1;
             }               
         }
         return -1;
