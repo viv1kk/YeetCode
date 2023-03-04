@@ -22,7 +22,7 @@ public:
                 z = i;
             }
             if (minf && maxf) {
-                res += (min(y, z)-(x-1));
+                res += (min(y, z)-x+1);
             }
         }
         return res;
