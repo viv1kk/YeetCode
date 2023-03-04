@@ -3,25 +3,26 @@ public:
     
     long long countSubarrays(vector<int>& nums, int minK, int maxK) {
        long res = 0;
-        bool minFound = false, maxFound = false;
-        int start = 0, minStart = 0, maxStart = 0;
-        for (int i = 0; i < nums.size(); i++) {
+        int n = nums.size();
+        bool minf = false, maxf = false;
+        int x = 0, y = 0, z = 0;
+        for (int i = 0; i < n; i++) {
             int num = nums[i];
             if (num < minK || num > maxK) {
-                minFound = false;
-                maxFound = false;
-                start = i+1;
+                minf = false;
+                maxf = false;
+                x = i+1;
             }
             if (num == minK) {
-                minFound = true;
-                minStart = i;
+                minf = true;
+                y = i;
             }
             if (num == maxK) {
-                maxFound = true;
-                maxStart = i;
+                maxf = true;
+                z = i;
             }
-            if (minFound && maxFound) {
-                res += (min(minStart, maxStart) - start + 1);
+            if (minf && maxf) {
+                res += (min(y, z)-(x-1));
             }
         }
         return res;
