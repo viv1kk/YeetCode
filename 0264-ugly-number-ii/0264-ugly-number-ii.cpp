@@ -1,17 +1,19 @@
 class Solution {
 public:
     int nthUglyNumber(int n) {
-        if(n <= 3) return n;
-        vector<int>dp(n);
-        dp[0] = 1;
-        int x = 0, y = 0, z = 0 ;
-        for(int i = 1; i < n; i++)
+        
+        priority_queue<long long, vector<long long>, greater<long long>>pq;
+        
+        long long top;
+        pq.push(1);
+        while(n--)
         {
-            dp[i] = min(dp[x]*2, min(dp[y]*3, dp[z]*5));
-            if(dp[i] == dp[x]*2)x++;
-            if(dp[i] == dp[y]*3)y++;
-            if(dp[i] == dp[z]*5)z++;
+            top = pq.top();
+            while(!pq.empty() && pq.top() == top) pq.pop();
+            pq.push(2*top);
+            pq.push(3*top);
+            pq.push(5*top);
         }
-        return dp.back();
+        return top;
     }
 };
