@@ -6,9 +6,8 @@ public:
         
         for(auto i : s)
         {
-            if(i == '|')
-                x = !x;
             if(x && i == '*')count++;
+            if(i == '|') x = !x;
         }
         return count;
     }
