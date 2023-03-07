@@ -6,10 +6,7 @@ public:
         for(auto i : words)
         {
             string t = "";
-            for(auto j : i)
-            {
-                t += s[j-'a'];
-            }
+            for(auto j : i) t += s[j-'a'];
             st.insert(t);
         }
         return st.size();
