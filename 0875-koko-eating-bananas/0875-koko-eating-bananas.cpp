@@ -12,9 +12,10 @@ public:
             
             for(int i = 0; i < n; i++)
             {
-                if(piles[i] <= mid){hours++; continue;}
-                if(piles[i]%mid != 0) hours++;
-                hours += piles[i]/mid;
+                int a = piles[i];
+                if(a <= mid){hours++; continue;}
+                if(a%mid != 0) hours++;
+                hours += a/mid;
             }
             if (hours > x)
                 l = mid + 1;
