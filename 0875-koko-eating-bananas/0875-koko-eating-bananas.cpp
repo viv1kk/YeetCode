@@ -7,7 +7,7 @@ public:
         
         while(l <= h)
         {
-            int mid = l+(h-l)/2;
+            int mid = l+((h-l)>>1);
             int hours = 0;
             
             for(int i = 0; i < n; i++)
