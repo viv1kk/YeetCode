@@ -8,7 +8,8 @@ public:
         
         for(int i = 0; i < n; i++)
         {
-            if(s[i] == '(')
+            char t = s[i];
+            if(t == '(')
             {
                 if(flag == 0){
                     x = i;
@@ -16,7 +17,7 @@ public:
                 }
                 bal++;
             }
-            else if(s[i] == ')'){
+            else if(t == ')'){
                 bal--;
                 if(bal==0)
                 {
