@@ -1,7 +1,6 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        s.push_back(' ');
         int n = s.length();
         int prev = 0;
         for(int i = 0; i < n; i++)
@@ -12,7 +11,7 @@ public:
                 prev = i+1;
             }
         }
-        s.pop_back();
+        reverse(s.begin()+prev, s.end());
         return s;
     }
 };
