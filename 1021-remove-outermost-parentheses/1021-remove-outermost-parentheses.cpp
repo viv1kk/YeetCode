@@ -5,6 +5,7 @@ public:
         int flag = 0;
         int bal = 0;
         int n = s.length();
+        
         for(int i = 0; i < n; i++)
         {
             if(s[i] == '(')
@@ -15,7 +16,7 @@ public:
                 }
                 bal++;
             }
-            if(s[i] == ')'){
+            else if(s[i] == ')'){
                 bal--;
                 if(bal==0)
                 {
