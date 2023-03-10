@@ -5,10 +5,10 @@ public:
         
         for(int i = 0; i < words.size(); i++)
         {
-            set<char>a(words[i].begin(), words[i].end());
+            unordered_set<char>a(words[i].begin(), words[i].end());
             for(int j = i+1; j < words.size(); j++)
             {
-                set<char>b(words[j].begin(), words[j].end());
+                unordered_set<char>b(words[j].begin(), words[j].end());
                 if(a == b)
                     count++;
             }
