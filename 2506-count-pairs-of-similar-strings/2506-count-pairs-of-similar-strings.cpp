@@ -1,18 +1,14 @@
 class Solution {
 public:
     int similarPairs(vector<string>& words) {
-        int count = 0;
-        
-        for(int i = 0; i < words.size(); i++)
-        {
-            unordered_set<char>a(words[i].begin(), words[i].end());
-            for(int j = i+1; j < words.size(); j++)
-            {
-                unordered_set<char>b(words[j].begin(), words[j].end());
-                if(a == b)
-                    count++;
-            }
-        }
-        return count;
+        unordered_map<int, int> m;
+    int res = 0;
+    for (const auto &w : words) {
+        int bits = 0;
+        for (auto ch : w)
+            bits |= (1 << (ch - 'a'));
+        res += m[bits]++;
+    }
+        return res;
     }
 };
