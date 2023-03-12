@@ -1,9 +1,6 @@
 class Solution {
 public:
-    static bool comp(int a, int b)
-    {
-        return a <= b;
-    }
+
     bool areNumbersAscending(string s) {
         vector<int>a;
         
@@ -19,6 +16,6 @@ public:
             if(s[i] >= '0' && s[i] <= '9')
                 t+=s[i];   
         }
-        return is_sorted(a.begin(), a.end(), comp);
+        return is_sorted(a.begin(), a.end(), [&](int a, int b){return a <= b;});
     }
 };
