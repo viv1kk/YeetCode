@@ -2,7 +2,7 @@ class Solution {
 public:
     int numUniqueEmails(vector<string>& emails) {
         int count = 0;
-        set<string> st;
+        unordered_set<string> st;
         for(int i = 0; i < emails.size(); i++)
         {
             string s = "";
