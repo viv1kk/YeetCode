@@ -14,9 +14,9 @@ public:
         {
             c += targetWord[i]+('0'-'a');
         }
-        int x = std::stoi(a);
-        int y = std::stoi(b);
-        int z = std::stoi(c);
+        int x = stoi(a);
+        int y = stoi(b);
+        int z = stoi(c);
         return (x + y == z);
     }
 };
