@@ -15,15 +15,11 @@ public:
     void f(TreeNode* root, int ans)
     {
         if(!root) return; 
-        if(root && (!root->left && !root->right)){
-            
-            ans *= 10;
-            ans += root->val;
-            x += ans; return;
-        }
         ans *= 10;
         ans += root->val;
-        
+        if(root && (!root->left && !root->right)){
+            x += ans; return;
+        }    
         f(root->left, ans);
         f(root->right, ans);   
     }
