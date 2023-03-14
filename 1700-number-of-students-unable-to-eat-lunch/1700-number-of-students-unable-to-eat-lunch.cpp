@@ -12,14 +12,11 @@ public:
             if(q.front() == sd[ind])
             {
                 ind++;
-                q.pop();
                 x = 0;
             }
             else
-            {
                 q.push(q.front());
-                q.pop();
-            }
+            q.pop();
             if(x >= sd.size())
                 break;
             x++;
