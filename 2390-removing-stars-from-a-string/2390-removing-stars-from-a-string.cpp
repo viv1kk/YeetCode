@@ -12,7 +12,7 @@ public:
             }
             char x = ans.back();
             
-            if((x == '*' && s[i] != '*') || (x != '*' && s[i] == '*'))
+            if((x != '*' && s[i] == '*')||(x == '*' && s[i] != '*'))
                 ans.pop_back();
             else
                 ans += s[i];
