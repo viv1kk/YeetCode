@@ -9,7 +9,7 @@ public:
             if(ans == ""){ ans += s[i]; continue; }
             char x = ans.back();
             if(!(x != '*' ^ s[i] == '*')) ans.pop_back();
-            else ans.push_back(s[i]);
+            else ans += s[i];
         }
         return ans;
     }
