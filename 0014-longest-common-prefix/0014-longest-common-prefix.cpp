@@ -3,7 +3,7 @@ public:
     string longestCommonPrefix(vector<string>& strs) {
         int min_ind = INT_MAX;
         string ms = "";
-        for(auto i : strs)
+        for(string &i : strs)
         {
             if(min_ind > i.length()){ min_ind = i.length();ms = i;}
         }
