@@ -25,25 +25,15 @@ public:
                 }
             }
             pq.pop();
-            
             int r = 0;
-            
-            if(temp.second == 'd'){
-                r = min(2, curr.first);
-            }
+            if(temp.second == 'd') r = min(2, curr.first);
             else
             {
                 int x = curr.first;
                 if(x > 1) x += pq.top().first;
                 int y = (int)ceil((double)temp.first+1/(double)x);
-                if(y >= 3){
-                    r = 1;
-                }
-                else{
-                    r = min(2, min(y, curr.first));
-                }
-                
-                
+                if(y >= 3) r = 1;
+                else r = min(2, min(y, curr.first));
                 pq.push(temp);
             }
             s += curr.second;
