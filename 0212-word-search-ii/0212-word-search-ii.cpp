@@ -39,17 +39,6 @@ public:
         head->setEnd();
     }
     
-    bool search(string word, Node* root) {
-        Node* head = root;
-        int n = word.length();
-        for(int i = 0; i < n; i++)
-        {
-            if(!head->containsChar(word[i])) return false;
-            head = head->getToNode(word[i]);
-        }
-        return (head->isEnd());
-    }
-    
     vector<string>ans;
     void f(vector<vector<char>>& board, int i, int j, int m, int n, string s, Node* trie)
     {
