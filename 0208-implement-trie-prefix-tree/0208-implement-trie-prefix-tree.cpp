@@ -31,7 +31,8 @@ public:
     
     void insert(string word) {
         Node *head = root;
-        for(int i = 0; i < word.length(); i++){
+        int n = word.length();
+        for(int i = 0; i < n; i++){
             if(!head->containsChar(word[i]))
                 head->addNewChar(word[i], new Node());
             head = head->getToNode(word[i]);
@@ -41,7 +42,8 @@ public:
     
     bool search(string word) {
         Node* head = root;
-        for(int i = 0; i < word.size(); i++)
+        int n = word.length();
+        for(int i = 0; i < n; i++)
         {
             if(!head->containsChar(word[i])) return false;
             head = head->getToNode(word[i]);
@@ -51,7 +53,8 @@ public:
     
     bool startsWith(string prefix) {
         Node* head = root;
-        for(int i = 0; i < prefix.length(); i++)
+        int n = prefix.length();
+        for(int i = 0; i < n; i++)
         {
             if(!head->containsChar(prefix[i])) return false;
             head = head->getToNode(prefix[i]);
