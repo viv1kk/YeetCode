@@ -26,8 +26,7 @@ public:
             
             int r = 0;
             if(temp.second == 'd') r = min(2, curr.first);
-            else
-            {
+            else{
                 int x = curr.first;
                 int y = (temp.first/x)+(temp.first%x)?1:0;
                 if(y >= 2) r = 1;
