@@ -14,7 +14,6 @@ public:
         {
             pair<int, char>temp;
             temp = {0, 'd'};
-            
             curr = pq.top();
             if(curr == prev)
             {
@@ -29,8 +28,7 @@ public:
             if(temp.second == 'd') r = min(2, curr.first);
             else
             {
-                int x = curr.first;
-                if(x > 1) x += pq.top().first;
+                int x = curr.first + pq.top().first;
                 int y = (int)ceil((double)temp.first/(double)x);
                 if(y >= 2) r = 1;
                 else r = min(2, min(y, curr.first));
