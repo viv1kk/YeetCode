@@ -29,16 +29,15 @@ public:
             else
             {
                 int x = curr.first + pq.top().first;
-                int y = (int)ceil((double)temp.first/(double)x);
+                int y = (temp.first/x)+(temp.first%x)?1:0;
                 if(y >= 2) r = 1;
                 else r = min(2, min(y, curr.first));
                 pq.push(temp);
             }
             s += curr.second;
-            if(r > 1) s += curr.second;
-            
+            if(r > 1)
+                s += curr.second;
             curr.first = curr.first- r;
-            
             if(curr.first > 0)
                 pq.push(curr);
             prev = curr;
@@ -55,7 +54,6 @@ public:
             s += pq.top().second;
             if(x > 1) s+=pq.top().second;
         }
-    
         return s;
     }
 };
