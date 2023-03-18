@@ -36,24 +36,10 @@ public:
             }
             s += curr.second;
             if(r > 1) s += curr.second;
-            
             curr.first = curr.first- r;
-            
             if(curr.first > 0)
                 pq.push(curr);
             prev = curr;
-        }
-        
-        if(s == ""){
-            if(a) s.insert(0, min(a, 2), 'a');
-            if(b) s.insert(0, min(b, 2), 'b');
-            // if(c) s.insert(0, min(c, 2), 'c');
-        }
-        else if(!pq.empty() && s.back() != pq.top().second)
-        {
-            int x = min(2, pq.top().first);
-            s += pq.top().second;
-            if(x > 1) s+=pq.top().second;
         }
         return s;
     }
