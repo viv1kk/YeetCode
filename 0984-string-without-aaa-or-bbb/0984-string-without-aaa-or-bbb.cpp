@@ -29,7 +29,7 @@ public:
             else
             {
                 int x = curr.first;
-                int y = (int)ceil((double)temp.first/(double)x);
+                int y = (temp.first/x)+(temp.first%x)?1:0;
                 if(y >= 2) r = 1;
                 else r = min(2, min(y, curr.first));
                 pq.push(temp);
