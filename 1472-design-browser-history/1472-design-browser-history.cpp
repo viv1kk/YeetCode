@@ -34,7 +34,6 @@ public:
             forw.pop();
             i++;
         }
-        // forw.push(t);
         return curr;
     }
 };
