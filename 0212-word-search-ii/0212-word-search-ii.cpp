@@ -75,6 +75,7 @@ public:
         {
             for(int j = 0; j < n; j++)
             {
+                if(root->containsChar(board[i][j]))
                    f(board, i, j, m, n, "", root);
             }
         }
