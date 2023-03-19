@@ -8,12 +8,10 @@ struct Trie{
     void setEnd(){
         flag = true;
     }
-    bool exists(char c)
-    {
+    bool exists(char c){
         return (node[c-'a'] != NULL);
     }
-    Trie* getToTrie(char c)
-    {
+    Trie* getToTrie(char c){
         return node[c-'a'];
     }
     bool isEnd(){
@@ -68,8 +66,6 @@ public:
         }
         return x;
     }
-    
-    
     
     bool search(string word) {
         return searchTrie(node, word, 0, word.size());
