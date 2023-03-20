@@ -7,15 +7,8 @@ public:
         while(l < r)
         {
             ans = max(ans, (r-l)*min(height[l], height[r]));
-            if(height[l] > height[r])
-            {
-                r--;
-            }
-            else
-            {
-                l++;
-            }
-                
+            if(height[l] > height[r]) r--;
+            else l++;            
         }
         return ans;
     }
