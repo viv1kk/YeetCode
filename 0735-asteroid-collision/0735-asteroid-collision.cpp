@@ -13,8 +13,8 @@ public:
                 int x = st.top();
                 if((x > 0 && a[i] < 0))
                 {
-                    if(abs(a[i]) > x) { i--; st.pop(); }
-                    else if(abs(a[i]) == x) st.pop();
+                    if(-a[i] > x) { i--; st.pop(); }
+                    else if(-a[i] == x) st.pop();
                 }
                 else st.push(a[i]);
             }
