@@ -52,11 +52,11 @@ public:
                 t.insert(t.size(), x, 'I');
                 x = 0;
             }
-        if(mp.find(x) != mp.end())
-            {
-                t += mp[x];
-                x -= mp[x];
-            }
+        // if(mp.find(x) != mp.end())
+        //     {
+        //         t += mp[x];
+        //         x -= mp[x];
+        //     }
         
         return t;
     }
