@@ -16,20 +16,16 @@ public:
                     if(abs(a[i]) > x) { i--; st.pop(); }
                     else if(abs(a[i]) == x) st.pop();
                 }
-                else
-                {
-                    st.push(a[i]);
-                }
+                else st.push(a[i]);
             }
             i++;
         }
-        vector<int>ans;
-        while(!st.empty())
-        {
-            ans.emplace_back(st.top());
+        n = st.size();
+        vector<int>res(n);
+        for(int i = n-1; i >= 0; i--) {
+            res[i] = st.top();
             st.pop();
         }
-        reverse(ans.begin(), ans.end());
-        return ans;
+        return res;
     }
 };
