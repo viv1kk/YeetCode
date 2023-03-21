@@ -31,7 +31,7 @@ public:
                 int x = curr.first + pq.top().first;
                 int y = (temp.first/x)+(temp.first%x)?1:0;
                 if(y >= 2) r = 1;
-                else r = min(2, min(y, curr.first));
+                else r = min(2, y);
                 pq.push(temp);
             }
             s += curr.second;
