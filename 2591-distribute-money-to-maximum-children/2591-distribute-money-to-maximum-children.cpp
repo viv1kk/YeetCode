@@ -12,7 +12,7 @@ public:
         if(money > 0)
         {
             if(children == 0) num--;
-            if(money == 3 && children == 1)num--;
+            else if(money == 3 && children == 1)num--;
         }
         
         if(num < 0)
