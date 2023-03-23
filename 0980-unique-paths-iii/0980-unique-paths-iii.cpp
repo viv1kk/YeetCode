@@ -6,13 +6,13 @@ public:
     void f(vector<vector<int>>&grid, int i, int j, int m, int n, int ct, int sz)
     {
         if(i < 0 || j < 0 || i >= m || j >= n) return;
-        if(grid[i][j]==-2 ||grid[i][j] == -1)return;
+        if(grid[i][j] == -1)return;
         if(grid[i][j] == 2){
             if(ct == sz) ans++;
             return;
         }
         int temp = grid[i][j];
-        grid[i][j] = -2;
+        grid[i][j] = -1;
         
         f(grid, i+1, j, m, n, ct+1, sz);
         f(grid, i-1, j, m, n, ct+1, sz);
@@ -41,7 +41,6 @@ public:
                 tot++;
             }
         }
-        // cout<<x<<", "<<y<<endl;
         f(grid, x, y, grid.size(), grid[0].size(), 1, tot);
         return ans;
     }
