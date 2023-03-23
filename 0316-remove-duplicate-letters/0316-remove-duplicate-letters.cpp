@@ -6,7 +6,7 @@ public:
         int freq[255] = {0};
         int n = s.length();
         
-        for(char&i : s){
+        for(char i : s){
             freq[i]++;
         }
         
