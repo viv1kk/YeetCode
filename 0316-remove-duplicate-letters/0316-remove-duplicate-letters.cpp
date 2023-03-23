@@ -2,8 +2,8 @@ class Solution {
 public:
     string removeDuplicateLetters(string s) {
         string ans = "";
-        bool vis[255] = {false};
-        int freq[255] = {0};
+        bool vis[128] = {false};
+        int freq[128] = {0};
         int n = s.length();
         
         for(char i : s){
