@@ -17,13 +17,15 @@ public:
     
     int countSubIslands(vector<vector<int>>& grid1, vector<vector<int>>& grid2) {
         int ans = 0;
-        for(int i = 0; i < grid1.size(); i++)
+        int m = grid1.size();
+        int n = grid1[0].size();
+        for(int i = 0; i < m; i++)
         {
-            for(int j = 0; j < grid1[0].size(); j++)
+            for(int j = 0; j < n; j++)
             {
                 int u = 1;
                 if(grid2[i][j] == 1){
-                    f(grid1, grid2, i, j, grid1.size(), grid1[0].size(), u);
+                    f(grid1, grid2, i, j, m, n, u);
                     ans += u; 
                 }
             }
