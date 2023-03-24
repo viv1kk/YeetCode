@@ -8,7 +8,7 @@ public:
             res.push_back(curr);
             return;
         }
-        if(ind < 0 || ind >= c.size() || t < 0) return;
+        if(ind >= c.size() || t < 0) return;
         
         curr.push_back(c[ind]);
         f(c, (t-c[ind]), ind, curr, res);
