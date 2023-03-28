@@ -5,7 +5,6 @@ public:
         if(n < c) return 0;
         if(n == c) return 1;
         if(dp[c] != 0) return dp[c];
-        int x = 0;
         return dp[c]=(f(n, c+1, dp)+f(n, c+2,dp));
     }
     
