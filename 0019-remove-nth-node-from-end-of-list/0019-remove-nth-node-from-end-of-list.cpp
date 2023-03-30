@@ -14,9 +14,7 @@ public:
         if(!head) return;
         f(head->next, n, curr, head);
         curr++;
-        
-        if(n == curr)
-        {
+        if(n == curr){
             prev->next = head->next;
             return;
         }
@@ -26,10 +24,7 @@ public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
         ListNode* h = new ListNode();
         h->next=head;
-        ListNode* t =head;
-        
-        // while(t){ t = t->next; tot++; } 
-        
+        ListNode* t =head;      
         int tot = 0;
         f(head, n, tot, h);
         return h->next;
