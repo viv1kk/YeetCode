@@ -1,7 +1,11 @@
 int minSteps(char * s, char * t){
     int f[127] = {0};
     int n = 0;
-    while(s[n] !='\0') ++f[s[n++]];
+    char c= s[0];
+    while (c !='\0'){
+        ++f[c];
+        c = s[++n];
+    } 
     int count = 0;
     for(int i = 0; i < n; ++i)
     {
