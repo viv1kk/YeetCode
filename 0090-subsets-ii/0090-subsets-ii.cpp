@@ -4,7 +4,6 @@ public:
     
     void f(vector<int>&nums, vector<int>&temp, int i)
     {
-        if(i > nums.size()) return;
         if(i == nums.size())
         {
             // sort(temp.begin(), temp.end());
