@@ -7,7 +7,7 @@ public:
         if(i > nums.size()) return;
         if(i == nums.size())
         {
-            sort(temp.begin(), temp.end());
+            // sort(temp.begin(), temp.end());
             st.insert(temp);
             return;
         }
