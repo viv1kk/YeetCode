@@ -1,8 +1,7 @@
 class Solution {
 public:
     vector<int> successfulPairs(vector<int>& spells, vector<int>& potions, long long success) {
-        sort(potions.begin(), potions.end());
-        
+        sort(potions.begin(), potions.end());        
         vector<int>ans;
         
         int n = spells.size();
