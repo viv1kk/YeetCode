@@ -7,7 +7,7 @@ public:
         int ans = 0;
         while(l < h)
         {
-            long long mid = (l+h)/2;
+            long long mid = ((l+h)>>1);
             long long d = mid*mid;
             if(d < x){
                 ans = mid;
