@@ -1,17 +1,17 @@
 class Solution {
 public:
     int partitionString(string s) {
-        unordered_map<char, int>mp;
+        bool c[26] = {false};
         
         int count = 0;
         for(int i = 0; i < s.length(); i++)
         {
-            if(mp.find(s[i]) != mp.end())
+            if(c[s[i]-'a'])
             {
-                mp.clear();
+                memset(c, false, 26);
                 count++;
             }
-            mp[s[i]]++;
+            c[s[i]-'a'] = true;
         }
         return ++count;
     }
