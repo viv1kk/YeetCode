@@ -2,7 +2,7 @@ class Solution {
 public:
     int trap(vector<int>& height) {
         int n = height.size();
-        vector<int>l(n), r(n);
+        int l[n], r[n];
         
         int mx1 = 0, mx2 = 0;
         for(int i = 0, j = n-1; i < n; i++, j--)
@@ -15,8 +15,7 @@ public:
         
         int count = 0;
         
-        for(int i = 0; i < n; i++)
-        {
+        for(int i = 0; i < n; i++){
             count += min(l[i], r[i])-height[i];
         }
         return count;
