@@ -4,7 +4,8 @@ public:
         bool c[26] = {false};
         
         int count = 1;
-        for(int i = 0; i < s.length(); i++)
+        int n = s.length();
+        for(int i = 0; i < n; i++)
         {
             
             if(c[s[i]-'a'])
