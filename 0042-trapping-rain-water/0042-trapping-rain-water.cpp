@@ -15,16 +15,12 @@ public:
             if(height[l] < height[r])
             {
                 if(height[l] < lmax)
-                {
                     count += lmax-height[l];
-                }
                 l++;
             }
             else if(height[l] >= height[r]){
                 if(height[r] < rmax)
-                {
                     count += rmax-height[r];
-                }
                 r--;
             }
         }
