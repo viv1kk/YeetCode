@@ -2,7 +2,7 @@ class Solution {
 public:
     
     bool flag = true;
-    void f(vector<vector<int>>&grid, int i, int j, int m, int n)
+    void f(vector<vector<int>>&grid, int i, int j, int &m, int &n)
     {
         if(i >= m || j >= n || i < 0 || j < 0)
         {
