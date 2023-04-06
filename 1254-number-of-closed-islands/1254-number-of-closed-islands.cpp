@@ -3,6 +3,7 @@ public:
     
     int ans = 0;
     bool flag = true;
+    
     void f(vector<vector<int>>&grid, int i, int j)
     {
         if(i >= grid.size() || j >= grid[0].size() || i < 0 || j < 0)
@@ -10,20 +11,18 @@ public:
             flag = false;
             return;
         }
-        if(grid[i][j] == -1) return;
+        // if(grid[i][j] == -1) return;
         if(grid[i][j] == 1)
-        {
             return;
-        }
+
         
         int temp = grid[i][j];
         
-        grid[i][j] = -1;
+        grid[i][j] = 1;
         if(flag)f(grid, i+1, j);
         if(flag)f(grid, i-1, j);
         if(flag)f(grid, i, j+1);
         if(flag)f(grid, i, j-1);
-        
         if(!flag)grid[i][j] = temp;
     }
     
