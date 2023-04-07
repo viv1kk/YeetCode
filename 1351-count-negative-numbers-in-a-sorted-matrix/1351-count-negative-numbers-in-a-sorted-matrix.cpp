@@ -7,14 +7,23 @@ public:
         int count = 0;
         for(int i = 0; i < m; i++)
         {
-            for(int j = 0; j < n; j++)
+            int x = 0, y = n-1;
+            int neg = n;
+            
+            while(x <= y)
             {
-                if(grid[i][j] < 0)
+                int mid = x+(y-x)/2;
+                if(grid[i][mid] >= 0)
                 {
-                    count += n-j;
-                    break;
+                    x = mid+1;
+                }
+                else
+                {
+                    neg = mid;
+                    y = mid-1;        
                 }
             }
+            count += (n-neg);
         }
         return count;
     }
