@@ -4,9 +4,10 @@ public:
         
         int p = 0;
         int fr = 1;
-        for(int i = 0; i < f.size(); i++)
+        int s = f.size();
+        for(int i = 0; i < s; i++)
         {
-            if(f[p] == 0 && (fr == f.size() || f[fr] == 0) && f[i] == 0)
+            if(f[p] == 0 && (fr == s || f[fr] == 0) && f[i] == 0)
             {
                 f[i] = 1;
                 n--;
