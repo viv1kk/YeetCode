@@ -14,7 +14,6 @@ public:
             p=i;
             fr++;
         }
-        cout<<n<<endl;
         return (n <= 0);
     }
 };
