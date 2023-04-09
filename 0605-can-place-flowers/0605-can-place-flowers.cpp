@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool canPlaceFlowers(vector<int>&f, int n) {
+        
+        int p = 0;
+        int fr = 1;
+        for(int i = 0; i < f.size(); i++)
+        {
+            if(f[p] == 0 && (fr == f.size() || f[fr] == 0) && f[i] == 0)
+            {
+                f[i] = 1;
+                n--;
+            }
+            p=i;
+            fr++;
+        }
+        cout<<n<<endl;
+        return (n <= 0);
+    }
+};
