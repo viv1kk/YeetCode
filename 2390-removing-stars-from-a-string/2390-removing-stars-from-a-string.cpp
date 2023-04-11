@@ -3,7 +3,7 @@ public:
     string removeStars(string s) {
         string ans = "";
         
-        for(char &i : s){
+        for(char i : s){
             if(ans == "")
                 ans.push_back(i);
             else
