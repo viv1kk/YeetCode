@@ -8,7 +8,8 @@ public:
                 ans.push_back(i);
             else
             {
-                if((i == '*' && ans.back() != '*' )|| (i != '*' && ans.back() == '*' ))
+                char c = ans.back();
+                if((i == '*' && c != '*' )|| (i != '*' && c == '*' ))
                     ans.pop_back();
                 else
                     ans.push_back(i);
