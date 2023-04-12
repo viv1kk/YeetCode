@@ -2,7 +2,6 @@ class Solution {
 public:
     string simplifyPath(string path) {
         stack<string>st;
-        
         string s = "";
         path += '/';
         for(int i = 0; i < path.size(); i++)
@@ -18,23 +17,17 @@ public:
                         s = "";
                     }
                     else
-                    {
                         st.push(s);
-                    }
                 }
                 else
-                {
                     st.push(s);
-                }
                 s = "";
             }
             else
             {
                 if(path[i] == '/')continue;
                 else
-                {
                     s += path[i];
-                }
             }
         }
         string ans = "";
