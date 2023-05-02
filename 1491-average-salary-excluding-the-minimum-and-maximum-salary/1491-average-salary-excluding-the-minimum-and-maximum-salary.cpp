@@ -1,15 +1,27 @@
 class Solution {
 public:
     double average(vector<int>& salary) {
-        int mn = *min_element(salary.begin(), salary.end());
-        int mx = *max_element(salary.begin(), salary.end());
-        
-        int tot = 0;
-        for(int i = 0; i < salary.size(); i++)
+        int mx = salary[0], mn = salary[1];
+        if(mx < mn)
         {
-            tot += salary[i];
+            swap(mx, mn);
         }
-        tot -= (mx+mn);
-        return (double)((double)tot/((double)salary.size()-2));
+        int tot = 0;
+        for(int i = 2; i < salary.size(); i++)
+        {
+            if(mn > salary[i])
+            {
+                tot += mn;
+                mn = salary[i];
+            }
+            else if(mx < salary[i])
+            {
+                tot += mx;
+                mx = salary[i];
+            }
+            else tot += salary[i];
+        }
+        double x = (double)tot/((double)salary.size()-2);
+        return x;
     }
 };
