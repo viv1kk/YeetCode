@@ -3,11 +3,11 @@ public:
     bool isAnagram(string s, string t) {
         int f[26] = {0};
         
-        for(auto i : s)
+        for(char i : s)
         {
             f[i-'a']++;
         }
-        for(auto i : t)
+        for(char i : t)
         {
             f[i-'a']--;
         }
