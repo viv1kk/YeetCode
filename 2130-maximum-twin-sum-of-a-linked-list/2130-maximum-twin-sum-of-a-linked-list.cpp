@@ -10,26 +10,26 @@
  */
 class Solution {
 public:
+    ListNode* reverseList(ListNode* cur, ListNode* prev = nullptr) {
+    while (cur != nullptr) {
+        swap(cur->next, prev);
+        swap(prev != nullptr ? prev->next : prev, cur);
+    }
+    return prev;
+    }    
     int pairSum(ListNode* head) {
-        ListNode* mid = head, *fast = head;
-        
-        stack<int>stk;
-        while(fast->next->next != NULL)
-        {
-            stk.push(mid->val);
-            mid = mid->next;
+        int res = 0;
+        auto slow = head, fast = head;
+        while (fast != nullptr && fast->next != nullptr) {
             fast = fast->next->next;
+            slow = slow->next;
         }
-        stk.push(mid->val);
-        mid =  mid->next;
-        
-        int ans = 0;
-        while(mid != NULL)
-        {
-            ans = max(ans, stk.top()+mid->val);
-            stk.pop();
-            mid = mid->next;
+        slow = reverseList(slow);
+        while (slow != nullptr) {
+            res = max(res, slow->val + head->val);
+            slow = slow->next;
+            head = head->next;
         }
-        return ans;
+        return res;
     }
 };
