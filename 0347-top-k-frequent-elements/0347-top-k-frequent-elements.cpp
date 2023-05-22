@@ -1,19 +1,33 @@
 class Solution {
 public:
-    vector<int> topKFrequent(vector<int>& nums, int k) {
-        unordered_map<int, int> mp;
-        priority_queue<pair<int, int>>pq;
-        vector<pair<int, int>> v;
-        vector<int>ans;
+    void func(unordered_map<int,int>&mp,vector<int>&ans, int k)
+    {
+        if(k == 0)return;
         
-        for(auto i : nums) mp[i]++;
-        for(auto i : mp) v.push_back({i.second, i.first});
-        for(auto i : v) pq.push(i);
-        while(k--)
+        int mx = 0;
+        int val = 0;
+        for(auto i : mp)
         {
-            ans.push_back(pq.top().second);
-            pq.pop();
+            if(mx < i.second)
+            {
+                val = i.first;
+                mx = i.second;
+            }
+        } 
+        ans.push_back(val);
+        mp.erase(val);
+        func(mp, ans, k-1);
+    }
+    
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int,int>mp;
+        for(int i : nums)
+        {
+            mp[i]++;
         }
+        
+        vector<int>ans;
+        func(mp, ans, k);
         return ans;
     }
 };
