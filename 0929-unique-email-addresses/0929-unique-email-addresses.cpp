@@ -1,27 +1,38 @@
 class Solution {
 public:
     int numUniqueEmails(vector<string>& emails) {
-        int count = 0;
-        unordered_set<string> st;
+        unordered_map<string, int>mp;
+        
         for(int i = 0; i < emails.size(); i++)
         {
-            string s = "";
-            bool d = false;
+            string x = "";
             bool pl = false;
-            for(int j = 0; j < emails[i].length(); j++)
+            bool at = false;
+            for(char j : emails[i])
             {
-                if(emails[i][j] == '@')
-                    d = true;
-                if(!d)
+                
+                if(j == '@')
                 {
-                    if(pl) continue; 
-                    else if(emails[i][j] == '.') continue;
-                    else if(emails[i][j] == '+'){ pl = true; continue;}
+                    at = true;
+                    x += j;
+                    continue;
                 }
-                s += emails[i][j];
+                if(!at)
+                {
+                    if(j == '.') continue;
+                    if(j == '+'){
+                        pl = true;
+                    }
+                    if(pl == true) continue;
+                    x += j;
+                }
+                else
+                {
+                    x += j;
+                }
             }
-            st.insert(s);
+            mp[x]++;
         }
-        return st.size();
+        return mp.size();
     }
 };
