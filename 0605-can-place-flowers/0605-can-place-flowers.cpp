@@ -1,20 +1,22 @@
 class Solution {
 public:
-    bool canPlaceFlowers(vector<int>&f, int n) {
-        
-        int p = 0;
-        int fr = 1;
+    bool canPlaceFlowers(vector<int>& f, int n) {
+        int pi = 0;
+        int fi = 1;
         int s = f.size();
+        
         for(int i = 0; i < s; i++)
         {
-            if(f[p] == 0 && (fr == s || f[fr] == 0) && f[i] == 0 && n)
+            if(f[pi] == 0 && (fi ==  s || f[fi] == 0) && f[i] == 0 && n != 0)
             {
-                f[i++] = 1;
-                n--; fr++;
+                f[i] = 1;
+                n--;
+                i++;
+                fi++;
             }
-            p=i;
-            fr++;
+            fi++;
+            pi = i;
         }
-        return (n <= 0);
+        return n <= 0;
     }
 };
