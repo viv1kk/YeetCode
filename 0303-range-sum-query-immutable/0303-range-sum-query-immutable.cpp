@@ -3,11 +3,9 @@ public:
     vector<int>v;
     
     NumArray(vector<int>& nums) {
-        int sum = 0;
         v.push_back(0);
-        for(int i : nums){
-            sum += i;
-            v.push_back(sum);
+        for(int i = 0; i < nums.size(); i++){
+            v.push_back(v[i]+nums[i]);
         }
     }
     
