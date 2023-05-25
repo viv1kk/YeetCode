@@ -6,10 +6,9 @@ public:
         
         while(i < nums.size())
         {
-            if(nums[i] != nums[nums[i]-1])
-            {
-                swap(nums[i], nums[nums[i]-1]);
-            }
+            int x = nums[i]-1;
+            if(nums[i] != nums[x])
+                swap(nums[i], nums[x]);
             else i++;
         }
         
