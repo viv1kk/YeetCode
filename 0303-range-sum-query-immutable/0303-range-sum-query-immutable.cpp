@@ -5,7 +5,8 @@ public:
     
     NumArray(vector<int>& nums) {
         v.push_back(0);
-        for(int i = 0; i < nums.size(); i++){
+        int n = nums.size();
+        for(int i = 0; i < n; i++){
             v.push_back(v[i]+nums[i]);
         }
     }
