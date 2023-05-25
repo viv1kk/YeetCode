@@ -1,6 +1,7 @@
 class NumArray {
-public:
+private:
     vector<int>v;
+public:
     
     NumArray(vector<int>& nums) {
         v.push_back(0);
