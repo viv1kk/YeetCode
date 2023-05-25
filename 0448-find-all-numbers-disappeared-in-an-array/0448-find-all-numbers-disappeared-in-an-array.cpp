@@ -3,10 +3,8 @@ public:
     vector<int> findDisappearedNumbers(vector<int>& nums) {
         vector<int>ans;
         int i = 0;
-        ios_base::sync_with_stdio(false);
-        cin.tie(NULL);
-        cout.tie(NULL);
-        while(i < nums.size())
+        int n = nums.size();
+        while(i < n)
         {
             int x = nums[i]-1;
             if(nums[i] != nums[x])
@@ -15,7 +13,7 @@ public:
         }
         
         
-        for(int i = 0; i < nums.size(); i++)
+        for(int i = 0; i < n; i++)
         {
             if(nums[i] != i+1)
                 ans.push_back(i+1);
