@@ -5,9 +5,8 @@ public:
         
         set<int>mem;
         for(auto &i : matches){
-            mp[i[1]]++; //looser
+            mp[i[1]]++;
             mem.insert(i[0]);
-            mem.insert(i[1]);
         }
         
         
