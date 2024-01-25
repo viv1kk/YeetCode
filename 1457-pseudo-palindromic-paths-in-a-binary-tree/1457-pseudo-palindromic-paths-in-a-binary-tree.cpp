@@ -19,10 +19,10 @@ public:
             int tot = 0;
             for(auto&[i, j] : mp){
                 if(j%2 == 1) odd++;
-                // if(odd > 1){
-                //     mp[root->val]--;
-                //     return 0;
-                // }
+                if(odd > 1){
+                    mp[root->val]--;
+                    return 0;
+                }
                 tot+=j;
             }
             mp[root->val]--;
