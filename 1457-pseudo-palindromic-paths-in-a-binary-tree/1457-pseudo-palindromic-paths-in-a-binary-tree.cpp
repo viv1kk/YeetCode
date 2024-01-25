@@ -17,16 +17,15 @@ public:
         if(root->left == nullptr && root->right == nullptr){
             int odd = 0;
             int tot = 0;
-            for(auto[i, j] : mp){
-                // cout<< i <<", "<<j<<endl;
+            for(auto&[i, j] : mp){
                 if(j%2 == 1) odd++;
-                // if(odd > 1) return;
+                if(odd > 1){
+                    mp[root->val]--;
+                    return;
+                }
                 tot+=j;
             }
-            if((tot%2== 0 && odd == 0) || (tot%2 == 1 && odd == 1)){
-                // cout<<root->val<<"& "<< tot<<", "<<odd<< endl;
-                ans++;
-            }
+            if((tot%2== 0 && odd == 0) || (tot%2 == 1 && odd == 1)) ans++;
             mp[root->val]--;
             return;
         }
