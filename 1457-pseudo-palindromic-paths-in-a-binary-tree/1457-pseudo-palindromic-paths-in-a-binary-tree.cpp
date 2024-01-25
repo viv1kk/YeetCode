@@ -11,7 +11,7 @@
  */
 class Solution {
 public:    
-    void f(TreeNode* root, map<int, int>&mp, int &ans){
+    void f(TreeNode* root, unordered_map<int, int>&mp, int &ans){
         if(!root) return;
         mp[root->val]++;
         if(root->left == nullptr && root->right == nullptr){
@@ -41,7 +41,7 @@ public:
     
     int pseudoPalindromicPaths (TreeNode* root) {
         int ans = 0;
-        map<int,int>mp;
+        unordered_map<int,int>mp;
         f(root, mp, ans);
         return ans;
     }
