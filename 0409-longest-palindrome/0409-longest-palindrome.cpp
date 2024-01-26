@@ -1,7 +1,7 @@
 class Solution {
 public:
     int longestPalindrome(string s) {
-        map<char, int>mp;
+        unordered_map<char, int>mp;
         for(char i : s) mp[i]++;
         
         int odd = 0;
@@ -10,7 +10,6 @@ public:
             if(j%2) odd++;
             tot += j;
         }
-        
         int ans = 0;
         if(odd > 1) ans = tot - odd + 1;
         else ans = tot;
