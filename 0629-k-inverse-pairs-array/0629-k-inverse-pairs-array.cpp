@@ -1,20 +1,6 @@
 class Solution {
 public:
     
-    int f(int n, int k, vector<vector<int>>&dp)
-    {
-        if(n == 0)return 0;
-        if(k == 0) return 1;
-        if(dp[n][k] != INT_MIN) return dp[n][k];
-        
-        long long ans = 0;
-        for(int i = 0; i <= min(k, n-1); i++){
-            ans += f(n-1, k-i, dp)%1000000007;
-        }
-        return dp[n][k] = ans%1000000007;
-    }
-    
-    
     int kInversePairs(int n, int k) {
         vector<vector<long long>>dp(n+1, vector<long long>(k+1, 0));
         int mod = 1000000007;
