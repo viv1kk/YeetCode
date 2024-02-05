@@ -17,10 +17,7 @@ public:
                 fr[s[j]]++;
                 if(fr[s[j]] <= mp[s[j]]) need++;
             }    
-            if(need < total){
-                j++;
-            }
-            else{
+            if(need >= total){
                 while(need >= total && i <= j){
                     if(j-i < ansj-ansi){
                         ansj = j, ansi = i;
@@ -31,10 +28,9 @@ public:
                     }
                     i++;
                 }
-                j++;
             }
+            j++;
         }
-        cout<<ansi <<" "<<ansj<<endl;
         if(ansj == n) return "";
         return s.substr(ansi, ansj-ansi+1);
     }
