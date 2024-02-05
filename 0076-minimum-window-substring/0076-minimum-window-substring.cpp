@@ -4,16 +4,17 @@ public:
         int n = s.length();
         if(n < t.length()) return "";
         
-        unordered_map<char,int>mp;
+        int mp[128] = {0};
         for(char i : t) mp[i]++;
         
         int need = 0, total = t.size();
         int i = 0, j = 0;
-        unordered_map<char, int>fr;
+        
+        int fr[128] = {0};
         
         int ansi = 0, ansj = n;
         while(j < n && i < n){
-            if(mp.find(s[j]) != mp.end()){
+            if(mp[s[j]]){
                 fr[s[j]]++;
                 if(fr[s[j]] <= mp[s[j]]) need++;
             }    
@@ -22,7 +23,7 @@ public:
                     if(j-i < ansj-ansi){
                         ansj = j, ansi = i;
                     }
-                    if(mp.find(s[i]) != mp.end()){
+                    if(mp[s[i]]){
                         fr[s[i]]--;
                         if(fr[s[i]] < mp[s[i]]) need--;
                     }
