@@ -18,17 +18,15 @@ public:
                 fr[s[j]]++;
                 if(fr[s[j]] <= mp[s[j]]) need++;
             }    
-            if(need >= total){
-                while(need >= total && i <= j){
-                    if(j-i < ansj-ansi){
-                        ansj = j, ansi = i;
-                    }
-                    if(mp[s[i]]){
-                        fr[s[i]]--;
-                        if(fr[s[i]] < mp[s[i]]) need--;
-                    }
-                    i++;
+            while(need >= total && i <= j){
+                if(j-i < ansj-ansi){
+                    ansj = j, ansi = i;
                 }
+                if(mp[s[i]]){
+                    fr[s[i]]--;
+                    if(fr[s[i]] < mp[s[i]]) need--;
+                }
+                i++;
             }
             j++;
         }
