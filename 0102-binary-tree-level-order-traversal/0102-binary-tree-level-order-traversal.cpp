@@ -27,7 +27,7 @@ public:
                 if(t->right) q.push(t->right);
                 q.pop();
             }
-            ans.push_back(temp);
+            ans.emplace_back(temp);
         }
         return ans;
     }
