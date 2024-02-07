@@ -12,7 +12,10 @@ public:
                 else if(sum < 0) j++;
                 else{
                     st.insert({nums[i], nums[j], nums[k]});
-                    j++, k--;
+                    int prev = nums[j];
+                    while(j<k&& nums[j] == prev)j++;
+                    prev = nums[k];
+                    while(j<k&&nums[k] == prev)k--;
                 }
             }
         }
