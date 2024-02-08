@@ -23,7 +23,6 @@ public:
         }
         
         vector<vector<int>>dp(pf.size(),vector<int>(n+1, -1));
-        for(int i : pf)cout<<i<<", ";
         return f(pf, 0, n, pf.size(), dp);
     }
 };
