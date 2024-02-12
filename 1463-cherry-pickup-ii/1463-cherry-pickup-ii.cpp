@@ -1,32 +1,24 @@
 class Solution {
 public:
-    int dy[3] = {0,-1,1};
-    int memo[71][71][71];
-
-    int dfs(vector<vector<int>>& grid, int i, int c1, int c2, int m, int n){
-
-        if(i==m)return 0;
-        if(c1<0 || c2<0 || c1>=n || c2>=n) return INT_MIN;
-        if(memo[i][c1][c2] != -1) return memo[i][c1][c2];
-
+    int dp[70][70][70] = {-1};
+    
+    int f(vector<vector<int>>&g, int r, int c1, int c2){
+        if(r == g.size()) return 0;
+        if(max(c1, c2) == g[r].size() || min(c1, c2) < 0) return INT_MIN;
+        if(dp[r][c1][c2] != -1) return dp[r][c1][c2];
+        
         int ans = 0;
-
-        for(int k =0;k<3;k++){
-            for(int r = 0;r<3;r++){
-                ans = max(ans, dfs(grid, i+1, c1 + dy[k], c2 + dy[r] , m, n));
+        for(int x : {-1, 0, 1}){
+            for(int y : {-1, 0, 1}){
+                ans = max(ans, f(g, r+1, c1+x, c2+y));
             }
         }
-
-        ans += (c1==c2) ? grid[i][c1] : grid[i][c1] + grid[i][c2];
-        return memo[i][c1][c2] = ans;
-
+        ans += (c1 == c2)?(g[r][c1]):g[r][c1]+g[r][c2];
+        return dp[r][c1][c2] = ans;
     }
+    
     int cherryPickup(vector<vector<int>>& grid) {
-        int m = grid.size(); //rows
-        if(!m)return 0;
-        int n  = grid[0].size(); //cols
-        memset(memo,-1,sizeof memo);
-        return dfs(grid,0,0,n-1,m,n);
-
+        memset(dp,-1,sizeof dp);
+        return f(grid, 0, 0, grid[0].size()-1);
     }
 };
