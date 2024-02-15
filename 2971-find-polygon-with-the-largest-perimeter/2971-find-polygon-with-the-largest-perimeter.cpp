@@ -4,7 +4,7 @@ public:
         int n = nums.size();
         sort(nums.begin(), nums.end());
         
-        vector<long long>p(n);
+        long long p[n];
         p[0] = nums[0];
         for(int i = 1; i < n; i++){
             p[i] = p[i-1]+nums[i];
