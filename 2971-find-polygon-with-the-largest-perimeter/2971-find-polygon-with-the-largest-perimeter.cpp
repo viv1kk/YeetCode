@@ -7,12 +7,10 @@ public:
         long long sum = nums[0]+nums[1];
         long long ans = -1;
         for(int i = 2; i < n; i++){
-            sum += nums[i];
-            if(sum-nums[i] > nums[i]){
-                // sum += nums[i];
-                ans = sum;
+            if(sum > nums[i]){
+                ans = sum+nums[i];
             }
-            // else break;
+            sum += nums[i];
         }
         return ans;
     }
