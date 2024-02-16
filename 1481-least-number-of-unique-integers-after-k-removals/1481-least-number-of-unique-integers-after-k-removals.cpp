@@ -5,16 +5,20 @@ public:
         for(int i : arr){
             mp[i]++;
         }
+        vector<int>f;
+        for(auto[i, j] : mp){
+            f.push_back(j);
+        }
+        sort(f.begin(), f.end());
         
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>> >pq;
-        for(auto&[i, j] : mp){
-            pq.push({j, i});
+        int n = f.size();
+        int i = 0;
+
+        int x = n;
+        for(int i : f){
+            if(k >= i){ k-=i; x--;}
+            else return x;
         }
-        while(!pq.empty() && k > 0){
-            k -= pq.top().first;
-            if(k >= 0)
-                pq.pop();
-        }
-        return pq.size();
+        return 0;
     }
 };
