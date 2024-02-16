@@ -10,10 +10,7 @@ public:
             f.push_back(j);
         }
         sort(f.begin(), f.end());
-        
         int n = f.size();
-        int i = 0;
-
         int x = n;
         for(int i : f){
             if(k >= i){ k-=i; x--;}
