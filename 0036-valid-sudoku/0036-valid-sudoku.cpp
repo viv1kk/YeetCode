@@ -17,12 +17,6 @@ public:
     bool isValidSudoku(vector<vector<char>>& board) {
         int n = 9;
         
-        for(int i = 0; i < n; i+=3){
-            for(int j = 0; j < n; j+= 3){
-                if(!f(board, i, j))return false;
-            }
-        }
-        
         int h[9][9], v[9][9];
         memset(h, 0, sizeof h);
         memset(v, 0, sizeof v);
@@ -44,6 +38,12 @@ public:
                 v[board[i][j]-'1'][j]++;
             }
         }
+        for(int i = 0; i < n; i+=3){
+            for(int j = 0; j < n; j+= 3){
+                if(!f(board, i, j))return false;
+            }
+        }
         return true;
     }
+        
 };
