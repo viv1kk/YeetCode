@@ -6,12 +6,11 @@ public:
         int ans = 0;
         while(i >= 0){
             ans = (ans << 1);
-            
             int l = (left&(1<<i));
             int r = (right&(1<<i));
             if(x){
                 if(l == r) ans += !(l == 0); 
-                else x = false;
+                else return (ans<<i);
             }
             i--;
         }
