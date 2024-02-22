@@ -2,8 +2,8 @@ class Solution {
 public:
     int findJudge(int n, vector<vector<int>>& trust) {
         if(n == 1 && trust.size() == 0) return 1;
-        map<int, set<int>>mp;
-        map<int, int>mp2;
+        unordered_map<int, set<int>>mp;
+        unordered_map<int, int>mp2;
         
         for(auto& i : trust){
             mp[i[1]].insert(i[0]);
